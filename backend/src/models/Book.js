@@ -1,0 +1,36 @@
+const mongoose = require('mongoose');
+
+const bookSchema = new mongoose.Schema({
+  category: {
+    type: String,
+    required: true,
+    enum: ['College', 'School', 'Competitive']
+  },
+  subject: {
+    type: String,
+    required: true
+  },
+  title: {
+    type: String,
+    required: true
+  },
+  author: {
+    type: String,
+    required: true
+  },
+  fileUrl: String,
+  isFree: {
+    type: Boolean,
+    default: true
+  },
+  price: {
+    type: Number,
+    default: 0
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
+});
+
+module.exports = mongoose.model('Book', bookSchema);
