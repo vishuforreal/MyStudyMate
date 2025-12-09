@@ -1,0 +1,27 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Uploads folder (files stored on Cloudinary)
+backend/uploads/
+
+# Flutter
+my_study_mate_app/.dart_tool/
+my_study_mate_app/build/
+my_study_mate_app/.flutter-plugins
+my_study_mate_app/.flutter-plugins-dependencies
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*

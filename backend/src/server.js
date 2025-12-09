@@ -27,38 +27,7 @@ app.use('/api/tests', require('./routes/tests'));
 app.use('/api/ppts', require('./routes/ppts'));
 app.use('/api/projects', require('./routes/projects'));
 app.use('/api/assignments', require('./routes/assignments'));
-
-// File upload route
-const upload = require('./config/upload');
-const cloudinary = require('./config/cloudinary');
-
-app.post('/api/upload', upload.single('file'), async (req, res) => {
-  try {
-    if (!req.file) {
-      return res.status(400).json({ message: 'No file uploaded' });
-    }
-
-    // Upload to Cloudinary
-    const result = await new Promise((resolve, reject) => {
-      cloudinary.uploader.upload_stream(
-        { resource_type: 'auto', folder: 'mystudymate' },
-        (error, result) => {
-          if (error) reject(error);
-          else resolve(result);
-        }
-      ).end(req.file.buffer);
-    });
-
-    res.json({ 
-      success: true, 
-      fileUrl: result.secure_url,
-      fileName: result.original_filename,
-      publicId: result.public_id
-    });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
+app.use('/api/upload', require('./routes/upload'));
 
 // Health check
 app.get('/', (req, res) => {

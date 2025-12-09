@@ -3,11 +3,14 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService {
-  static const String baseUrl = 'https://YOUR-RAILWAY-URL.up.railway.app/api';
-  // Replace YOUR-RAILWAY-URL with your actual Railway domain
+  // For Android emulator use:
+  static const String baseUrl = 'http://10.0.2.2:3000/api';
   
-  // For Android emulator use: http://10.0.2.2:5000/api
-  // For real device use your computer's IP: http://192.168.x.x:5000/api
+  // For real device use your computer's IP:
+  // static const String baseUrl = 'http://192.168.x.x:3000/api';
+  
+  // For production use:
+  // static const String baseUrl = 'https://YOUR-RAILWAY-URL.up.railway.app/api';
 
   static Future<Map<String, dynamic>> register({
     required String name,
