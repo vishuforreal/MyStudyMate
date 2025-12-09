@@ -47,10 +47,10 @@ exports.forgotPassword = async (req, res) => {
 };
 
 // @desc    Get security question
-// @route   POST /api/users/security-question
+// @route   GET /api/users/security-question?email=xxx
 exports.getSecurityQuestion = async (req, res) => {
   try {
-    const { email } = req.body;
+    const { email } = req.query;
     const user = await User.findOne({ email }).select('securityQuestion');
     
     if (!user) {
