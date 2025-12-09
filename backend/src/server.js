@@ -28,6 +28,7 @@ app.use('/api/ppts', require('./routes/ppts'));
 app.use('/api/projects', require('./routes/projects'));
 app.use('/api/assignments', require('./routes/assignments'));
 app.use('/api/upload', require('./routes/upload'));
+app.use('/api', require('./routes/createAdmin'));
 
 // Health check
 app.get('/', (req, res) => {
