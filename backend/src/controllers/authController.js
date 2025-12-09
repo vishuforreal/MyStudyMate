@@ -42,6 +42,7 @@ exports.register = async (req, res) => {
         name: user.name,
         email: user.email,
         course: user.course,
+        role: user.role,
         profileImage: user.profileImage
       }
     });
@@ -78,6 +79,7 @@ exports.login = async (req, res) => {
         name: user.name,
         email: user.email,
         course: user.course,
+        role: user.role,
         profileImage: user.profileImage,
         subscription: user.subscription
       }

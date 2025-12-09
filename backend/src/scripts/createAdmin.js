@@ -21,6 +21,8 @@ const createAdmin = async () => {
       phone: '1234567890',
       course: 'BCA',
       role: 'superadmin',
+      securityQuestion: 'What is your pet name?',
+      securityAnswer: 'admin',
     });
 
     console.log('✅ Admin user created successfully');
