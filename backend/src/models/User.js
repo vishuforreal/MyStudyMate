@@ -24,6 +24,18 @@ const userSchema = new mongoose.Schema({
   course: {
     type: String
   },
+  profileImage: {
+    type: String,
+    default: ''
+  },
+  securityQuestion: {
+    type: String,
+    required: true
+  },
+  securityAnswer: {
+    type: String,
+    required: true
+  },
   role: {
     type: String,
     enum: ['user', 'admin', 'superadmin'],

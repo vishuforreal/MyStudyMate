@@ -12,7 +12,7 @@ const generateToken = (id) => {
 // @route   POST /api/auth/register
 exports.register = async (req, res) => {
   try {
-    const { name, email, password, phone, course } = req.body;
+    const { name, email, password, phone, course, securityQuestion, securityAnswer } = req.body;
 
     // Check if user exists
     const userExists = await User.findOne({ email });
@@ -27,6 +27,8 @@ exports.register = async (req, res) => {
       password,
       phone,
       course,
+      securityQuestion,
+      securityAnswer,
       role: email === 'admin@mystudymate.com' ? 'superadmin' : 'user'
     });
 
@@ -39,7 +41,8 @@ exports.register = async (req, res) => {
         id: user._id,
         name: user.name,
         email: user.email,
-        course: user.course
+        course: user.course,
+        profileImage: user.profileImage
       }
     });
   } catch (error) {
@@ -75,6 +78,7 @@ exports.login = async (req, res) => {
         name: user.name,
         email: user.email,
         course: user.course,
+        profileImage: user.profileImage,
         subscription: user.subscription
       }
     });
